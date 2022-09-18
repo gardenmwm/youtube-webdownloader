@@ -1,0 +1,13 @@
+[Unit]
+Description=Gunicorn instance to serve youtube downloader
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/usr/share/youtube-webdownloader/
+Environment="PATH=/usr/bin"
+ExecStart=/usr/bin/env PATH=/usr/bin gunicorn wsgi:app
+
+[Install]
+WantedBy="multi-user.target"
