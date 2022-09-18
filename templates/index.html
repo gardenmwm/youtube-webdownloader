@@ -1,0 +1,23 @@
+<HEAD>
+    <TITLE>Youtube Downloader</TITLE>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+</HEAD>
+<BODY>
+    <H1>Youtube Downloader</H1>
+    <FORM action="{{ url_for('addtoqueue')}}" method="post">
+        <INPUT type="text" name="url" size="500" value="http://www.youtube.com/watch?v=xxxxxxxxxxx">
+        <label for="destination">Location: </label>
+        <select name="destination" id="destination">
+            <option value="nemo">Nemo</option>
+            <option value="kelly">Kelly</option>
+            <option value="matt">Matt</option>
+        </select>
+        <INPUT type="submit" value="Download">
+    </FORM>
+
+    <H1>Bookmarklets</H1>
+    <P>Drag the following link to your bookmarks bar to download the current page.</P>
+    <a href="javascript:post('http://localhost:5069/addtoqueueredirect',{url:location.href, destination:'nemo'});function post(a,b){const c=(e,f)=>Object.assign(document.createElement(e),f),d=c('form',{action:a,method:'post',hidden:true});for(const[e,f]of Object.entries(b))d.appendChild(c('input',{name:e,value:f}));document.body.appendChild(d),d.submit()}">Download video for Nemo</a>
+</BODY>
+</HTML>
