@@ -60,7 +60,7 @@ def download_thread(name):
             print("Downloading video")
             video.status = 'Downloading'
             db.session.commit()
-            output=subprocess.check_output(['yt-dlp', '-o', os.path.join(video.destination, '%(channel)s - %(title)s.%(ext)s'), '--remux-video', 'mp4', video.url])
+            output=subprocess.check_output(['yt-dlp', '-o', os.path.join(video.destination, '%(channel)s/%(title)s.%(ext)s'), '--remux-video', 'mp4', video.url])
             print(output)
             video.status = 'Downloaded'
             db.session.commit()
